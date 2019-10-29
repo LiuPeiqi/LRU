@@ -126,6 +126,12 @@
     <ClCompile Include="..\..\src\lru.h" />
     <ClCompile Include="..\..\src\test_lru.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\lru_ex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
