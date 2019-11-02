@@ -1,0 +1,13 @@
+---
+Language:        Cpp
+BasedOnStyle:  Google
+IndentWidth: 4
+TabWidth: 4
+AccessModifierOffset: -4
+IndentCaseLabels: false
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortBlocksOnASingleLine: true
+TabWidth: 4
+UseTab: Never
+...
+
