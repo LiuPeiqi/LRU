@@ -56,8 +56,8 @@ public:
 
 private:
     using TKeyPair = std::pair<const TKey*, size_t>;
-    const std::function<bool(const TKeyPair&, const TKeyPair&)>
-        TKeyPairComp = [](const TKeyPair& left, const TKeyPair& right) -> bool {
+    const std::function<bool(const TKeyPair&, const TKeyPair&)> TKeyPairComp =
+        [](const TKeyPair& left, const TKeyPair& right) -> bool {
         return left.second < right.second;
     };
 
@@ -66,6 +66,8 @@ private:
         remove_list;
     size_t capacity;
     size_t reorder_length;
+    // if 64bit: 64bit_MAX / (3600 * 24 * 7) = 15T ~ 30T
+    // if 32bit: 32bit_MAX / (3600 * 24 * 7) < 7102
     size_t frame;
 };
 }  // namespace lpq
