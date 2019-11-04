@@ -2,9 +2,9 @@
 #include <memory>
 
 namespace lpq {
-template <typename TKey, typename TValue, 
-	template <typename, typename> class TMap, 
-	template <typename> class TContainer>
+template <typename TKey, typename TValue,
+          template <typename, typename> class TMap,
+          template <typename> class TContainer>
 class LRU {
 public:
     LRU(size_t cache_capacity) : capacity(cache_capacity) {}
