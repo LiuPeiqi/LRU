@@ -8,4 +8,4 @@ CC = clang++ $(INCLUDE_PATH) $(CXXFLAG)
 test_lru:
 	mkdir -p $(BUILD_DIR)
 
-	$(CC) -o $(BUILD_DIR)/$@  ../../src/test_lru.cpp
+	$(CC) -o $(BUILD_DIR)/$@  ../../src/test_lru.cpp -Og

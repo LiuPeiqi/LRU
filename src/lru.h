@@ -20,10 +20,17 @@ public:
     }
 
     void CheckIn(const TKey& key, const TValue& value) {
-        if (cache_list.size() == capacity) {
-            auto past = cache_list.front();
-            cache_list.erase(cache_list.begin());
-            cache_map.erase(past);
+        auto iter = cache_map.find(key);
+        if (iter == cache_map.end()) {
+            if (cache_list.size() == capacity) {
+                auto past = cache_list.front();
+                cache_list.erase(cache_list.begin());
+                cache_map.erase(past);
+            }
+        } else {
+            auto list_item =
+                std::find(cache_list.begin(), cache_list.end(), key);
+            cache_list.erase(list_item);
         }
         cache_map[key] = value;
         cache_list.push_back(key);
