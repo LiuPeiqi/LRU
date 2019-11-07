@@ -12,6 +12,7 @@
 
 #include "lru.h"
 #include "lru_ex.h"
+#include "lru_ex2.h"
 
 template <typename TKey, typename TValue>
 using std_map = std::map<TKey, TValue>;
@@ -39,6 +40,12 @@ using LRUHashVector = lpq::LRU<TKey, TValue, std_unordered_map, std_vector>;
 
 template <typename TKey, typename TValue>
 using LRUExMapVector = lpq::LRUEx<TKey, TValue, std_map>;
+
+template <typename TKey, typename TValue>
+using LRUEx2MapList = lpq::LRUEx2<TKey, TValue, std_map>;
+
+template <typename TKey, typename TValue>
+using LRUEx2HashList = lpq::LRUEx2<TKey, TValue, std_unordered_map>;
 
 std::default_random_engine engine;
 std::uniform_int_distribution<int> distribution(0, 64);
@@ -130,6 +137,10 @@ int main() {
         std::cout << "LRUExMapVector\t";
         TestLRU(key1, v1,
                 LRUExMapVector<size_t, std::string>(LRU_CAPACITY - 256, 256));
+        std::cout << "LRUEx2MapList\t";
+        TestLRU(key1, v1, LRUEx2MapList<size_t, std::string>(LRU_CAPACITY));
+        std::cout << "LRUEx2HashList\t";
+        TestLRU(key1, v1, LRUEx2HashList<size_t, std::string>(LRU_CAPACITY));
         std::cout << std::endl;
     }
     return 0;
